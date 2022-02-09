@@ -70,6 +70,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHC-3X-Mix">
+                                <rect key="frame" x="364" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="0po-5k-3a2"/>
+                                    <constraint firstAttribute="height" constant="30" id="hfn-49-UfA"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="AddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pmu-uG-gYi"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aliments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fns-Yi-QG1">
                                 <rect key="frame" x="8" y="52" width="398" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -82,7 +93,9 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fns-Yi-QG1" secondAttribute="trailing" constant="8" id="0TQ-HS-mgK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLp-QM-WzD" secondAttribute="trailing" constant="8" id="2i4-g6-H9w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xHC-3X-Mix" secondAttribute="trailing" constant="20" id="L0U-Pa-Spg"/>
                             <constraint firstItem="OLp-QM-WzD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="NSl-Th-w6h"/>
+                            <constraint firstItem="xHC-3X-Mix" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="RXN-lG-kK6"/>
                             <constraint firstItem="OLp-QM-WzD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Z4P-Tb-hqq"/>
                             <constraint firstItem="Fns-Yi-QG1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ggp-6u-ePR"/>
                             <constraint firstItem="Fns-Yi-QG1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="mSr-bf-ZIR"/>
@@ -100,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="512" height="512"/>
         <image name="foods" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
