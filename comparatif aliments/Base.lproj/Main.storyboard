@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLp-QM-WzD">
-                                <rect key="frame" x="8" y="94" width="398" height="768"/>
+                                <rect key="frame" x="8" y="155" width="398" height="707"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodId" rowHeight="98" id="YQP-2g-Ugs" customClass="FoodTableViewCell" customModule="comparatif_aliments" customModuleProvider="target">
@@ -87,16 +87,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JAK-0x-eVz">
+                                <rect key="frame" x="0.0" y="104" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fns-Yi-QG1" secondAttribute="trailing" constant="8" id="0TQ-HS-mgK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLp-QM-WzD" secondAttribute="trailing" constant="8" id="2i4-g6-H9w"/>
+                            <constraint firstItem="OLp-QM-WzD" firstAttribute="top" secondItem="JAK-0x-eVz" secondAttribute="bottom" id="4D1-C5-ayc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xHC-3X-Mix" secondAttribute="trailing" constant="20" id="L0U-Pa-Spg"/>
-                            <constraint firstItem="OLp-QM-WzD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="NSl-Th-w6h"/>
+                            <constraint firstItem="JAK-0x-eVz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PIr-hU-ON9"/>
+                            <constraint firstItem="JAK-0x-eVz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="R5c-Vk-R4x"/>
                             <constraint firstItem="xHC-3X-Mix" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="RXN-lG-kK6"/>
                             <constraint firstItem="OLp-QM-WzD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Z4P-Tb-hqq"/>
+                            <constraint firstItem="JAK-0x-eVz" firstAttribute="top" secondItem="xHC-3X-Mix" secondAttribute="bottom" constant="10" id="flb-mf-PID"/>
                             <constraint firstItem="Fns-Yi-QG1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ggp-6u-ePR"/>
                             <constraint firstItem="Fns-Yi-QG1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="mSr-bf-ZIR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OLp-QM-WzD" secondAttribute="bottom" id="qML-hF-Lb0"/>
@@ -105,6 +112,7 @@
                     <navigationItem key="navigationItem" id="lDx-yT-koI"/>
                     <connections>
                         <outlet property="foodTableView" destination="OLp-QM-WzD" id="c0a-dH-L0t"/>
+                        <outlet property="searchBarFood" destination="JAK-0x-eVz" id="YWk-am-bbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

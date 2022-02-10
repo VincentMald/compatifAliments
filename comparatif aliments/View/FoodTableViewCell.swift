@@ -26,11 +26,7 @@ class FoodTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override func layoutSubviews() {
-       super.layoutSubviews()
-        //Padding
-//        contentView.frame = contentView.frame.inset(by:  UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
-    }
+    
     
     func setupCell(_ food: Food){
         self.food = food
