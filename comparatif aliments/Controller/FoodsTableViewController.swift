@@ -126,7 +126,7 @@ class Foods {
         var foods: [Food] = []
         foods.append(Food(name: "Daurade",img: nil,shops: nil ))
         foods.append(Food(name: "Choux",img: nil,shops: nil ))
-        foods.append(Food(name: "Poire",img: nil,shops: nil ))
+        foods.append(Food(name: "Poire",img: nil,shops: [Shop(alimentName: "test", shopName: "testos", price: 12.3, date: Date(), weight: 12.0, typeWeight: 0, sales: false, priceWithSales: nil)] ))
         return foods
      }
 }

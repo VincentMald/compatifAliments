@@ -10,12 +10,12 @@ import UIKit
 class Food {
     private var _name: String
     private var _img: UIImage?
-    private var _shops: [Shop]?
+    private var _shops: [Shop]
     
     init(name: String, img: UIImage?,shops: [Shop]? ){
-    _name = name
-    _img = img
-    _shops = shops
+        _name = name
+        _img = img
+        _shops = shops ?? []
     }
     
     
@@ -29,6 +29,12 @@ class Food {
     
     var shops: [Shop]? {
         return _shops
+    }
+    
+    func addShop (shopToAdd: Shop?){
+        if let shop = shopToAdd{
+            _shops.append(shop)
+        }
     }
     
     

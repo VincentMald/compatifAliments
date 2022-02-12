@@ -9,17 +9,19 @@ import Foundation
 
 
 class Shop {
-    private var _name: String
+    private var _alimentName: String
+    private var _shopName: String
     private var _price: Double
-    private var _date: NSDate
+    private var _date: Date
     private var _weight: Double?
     //Penser à gerer les différents types
     private var _typeWeight: Int?
     private var _sales: Bool
     private var _priceWithSales: Double?
     
-    init(name: String, price: Double, date: NSDate, weight: Double?, typeWeight: Int?, sales: Bool, priceWithSales: Double?) {
-        _name = name
+    init(alimentName: String,shopName: String, price: Double, date: Date, weight: Double?, typeWeight: Int?, sales: Bool, priceWithSales: Double?) {
+        _alimentName = alimentName
+        _shopName = shopName
         _price = price
         _weight = weight
         _sales = sales
@@ -28,15 +30,19 @@ class Shop {
         _typeWeight = typeWeight
     }
     
-    var name: String {
-        return _name
+    var alimentName: String {
+        return _alimentName
+    }
+    
+    var shopName: String {
+        return _shopName
     }
      
     var price: Double {
         return _price
     }
     
-    var date: NSDate {
+    var date: Date {
        return _date
     }
     

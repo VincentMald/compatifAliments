@@ -20,6 +20,8 @@
 		B256E47D27B2F5EA00F5EC83 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E47C27B2F5EA00F5EC83 /* FoodTableViewCell.swift */; };
 		B256E47F27B5676B00F5EC83 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E47E27B5676B00F5EC83 /* DetailViewController.swift */; };
 		B256E48127B580C000F5EC83 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E48027B580C000F5EC83 /* AlertViewController.swift */; };
+		B256E48327B6EE7500F5EC83 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E48227B6EE7500F5EC83 /* RoundedTextField.swift */; };
+		B256E48527B6EE8B00F5EC83 /* AlertAddShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E48427B6EE8B00F5EC83 /* AlertAddShopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		B256E47C27B2F5EA00F5EC83 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		B256E47E27B5676B00F5EC83 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B256E48027B580C000F5EC83 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		B256E48227B6EE7500F5EC83 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		B256E48427B6EE8B00F5EC83 /* AlertAddShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAddShopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				B256E47C27B2F5EA00F5EC83 /* FoodTableViewCell.swift */,
+				B256E48227B6EE7500F5EC83 /* RoundedTextField.swift */,
+				B256E48427B6EE8B00F5EC83 /* AlertAddShopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,8 +308,10 @@
 				B256E47927B2ED2A00F5EC83 /* Food.swift in Sources */,
 				B256E48127B580C000F5EC83 /* AlertViewController.swift in Sources */,
 				B256E43627B177AB00F5EC83 /* SceneDelegate.swift in Sources */,
+				B256E48527B6EE8B00F5EC83 /* AlertAddShopView.swift in Sources */,
 				B256E47727B2ECFD00F5EC83 /* Shop.swift in Sources */,
 				B256E47D27B2F5EA00F5EC83 /* FoodTableViewCell.swift in Sources */,
+				B256E48327B6EE7500F5EC83 /* RoundedTextField.swift in Sources */,
 				B256E47F27B5676B00F5EC83 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
