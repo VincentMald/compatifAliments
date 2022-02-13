@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2090D2027B9920F00299001 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2090D1F27B9920F00299001 /* ImagePicker.swift */; };
 		B256E43427B177AB00F5EC83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E43327B177AB00F5EC83 /* AppDelegate.swift */; };
 		B256E43627B177AB00F5EC83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E43527B177AB00F5EC83 /* SceneDelegate.swift */; };
 		B256E43827B177AB00F5EC83 /* FoodsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256E43727B177AB00F5EC83 /* FoodsTableViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2090D1F27B9920F00299001 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B256E43027B177AB00F5EC83 /* comparatif aliments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "comparatif aliments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B256E43327B177AB00F5EC83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B256E43527B177AB00F5EC83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2090D1E27B9920000299001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B2090D1F27B9920F00299001 /* ImagePicker.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B256E42727B177AB00F5EC83 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		B256E43227B177AB00F5EC83 /* comparatif aliments */ = {
 			isa = PBXGroup;
 			children = (
+				B2090D1E27B9920000299001 /* Services */,
 				B256E47B27B2F5D200F5EC83 /* View */,
 				B256E47A27B2ED4100F5EC83 /* Controller */,
 				B256E47427B2ECAF00F5EC83 /* Model */,
@@ -310,6 +321,7 @@
 				B256E43627B177AB00F5EC83 /* SceneDelegate.swift in Sources */,
 				B256E48527B6EE8B00F5EC83 /* AlertAddShopView.swift in Sources */,
 				B256E47727B2ECFD00F5EC83 /* Shop.swift in Sources */,
+				B2090D2027B9920F00299001 /* ImagePicker.swift in Sources */,
 				B256E47D27B2F5EA00F5EC83 /* FoodTableViewCell.swift in Sources */,
 				B256E48327B6EE7500F5EC83 /* RoundedTextField.swift in Sources */,
 				B256E47F27B5676B00F5EC83 /* DetailViewController.swift in Sources */,

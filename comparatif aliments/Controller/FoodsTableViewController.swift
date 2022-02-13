@@ -5,34 +5,61 @@
 //  Created by Vincent Maldonado on 08/02/2022.
 //
 
+protocol ImagePickerDelegate {
 
+    func pickImage()
+}
 
 
 import UIKit
 
-class FoodsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+class FoodsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
+
     var foods: [Food] = []
     var filteredFoods: [Food] = []
+    var indexImage: Int?
+    
+ 
     
     
     @IBOutlet weak var searchBarFood: UISearchBar!
     @IBOutlet weak var foodTableView: UITableView!
     
-   
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         foodTableView.delegate = self
         foodTableView.dataSource = self
         searchBarFood.delegate = self
-    
-        //Custom Button bottom Page
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addItem))
         navigationItem.title = "Mes Aliments"
         
+        
         foods = Foods().all()
         filteredFoods = foods
+    }
+    
+
+    @objc func pickImage(_ sender: UIButton) {
+        indexImage = sender.tag
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            let cell: FoodTableViewCell = foodTableView.cellForRow(at: IndexPath(row: self.indexImage ?? 0, section: 0)) as! FoodTableViewCell
+            cell.foodImage.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
     
@@ -48,6 +75,10 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodId", for: indexPath) as? FoodTableViewCell {
             cell.setupCell(food)
             cell.selectionStyle = .none
+            
+            cell.imagePickerButton.tag = indexPath.row
+            cell.imagePickerButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+           
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "foodId", for: indexPath)
@@ -86,7 +117,14 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
             navigationItem.backBarButtonItem = backItem
            
         }
-        
+    }
+    
+    func setImagePicker(){
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        pickerController.mediaTypes = ["public.image", "public.movie"]
+        pickerController.sourceType = .camera
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -97,6 +135,8 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         })
         foodTableView.reloadData()
     }
+    
+    
     
     @objc func addItem(){let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
         //Ajour  d'un textfield
@@ -130,16 +170,3 @@ class Foods {
         return foods
      }
 }
-
-//For custom Button
-//        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
-//                    //set image for button
-//        let image =  UIImage(named: "add")
-//        button.setImage(image, for: UIControl.State.normal)
-//                    //add function for button
-//        button.addTarget(self, action: #selector(addItem), for: UIControl.Event.touchUpInside)
-//                    //set frame
-//        button.frame = CGRect(x: 0, y: 0, width: image!.size.width, height:  image!.size.height)
-//
-//        let barButton = UIBarButtonItem(customView: button)
-//        navigationItem.rightBarButtonItem = barButton

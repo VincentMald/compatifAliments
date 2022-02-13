@@ -20,6 +20,8 @@ func toDouble() -> Double? {
 class AlertViewController: UIViewController, UITextFieldDelegate {
     
     var food: Food?
+    typealias completion = (Shop)->Void
+    var completion: completion!
     
     
     @IBOutlet weak var articleTF: UITextField!
@@ -37,12 +39,14 @@ class AlertViewController: UIViewController, UITextFieldDelegate {
            
             if(food != nil){
                 let shopAlert: Shop = Shop(alimentName: articleTF.text!, shopName: magasinTF.text!, price: prixTF.text!.toDouble()!, date: Date(), weight: poidsTF.text!.toDouble()!, typeWeight: 0, sales: false, priceWithSales: 12)
-                food!.addShop(shopToAdd: shopAlert)
+                self.completion(shopAlert)
             }
         } else {
             //gerer les messages d'erreurs
         }
     }
+    
+    
     
     @IBAction func articleTextField(_ sender: Any) {
     }

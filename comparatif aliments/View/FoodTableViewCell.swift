@@ -12,19 +12,32 @@ class FoodTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var foodImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var imagePickerButton: UIButton!
     
     var food: Food!
+   
+    
+    @IBAction func imagePickerButton(_ sender: Any) {
+       
+       
+    }
+    
+    
+    
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
     
     
     
