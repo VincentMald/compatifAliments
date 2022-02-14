@@ -6,7 +6,6 @@
 //
 
 protocol ImagePickerDelegate {
-
     func pickImage()
 }
 
@@ -34,6 +33,7 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         foodTableView.delegate = self
         foodTableView.dataSource = self
         searchBarFood.delegate = self
+        foodTableView.separatorStyle = .none
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addItem))
         navigationItem.title = "Mes Aliments"
@@ -55,7 +55,6 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
             let cell: FoodTableViewCell = foodTableView.cellForRow(at: IndexPath(row: self.indexImage ?? 0, section: 0)) as! FoodTableViewCell
             cell.foodImage.image = image
         }
@@ -75,10 +74,8 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodId", for: indexPath) as? FoodTableViewCell {
             cell.setupCell(food)
             cell.selectionStyle = .none
-            
             cell.imagePickerButton.tag = indexPath.row
             cell.imagePickerButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
-           
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "foodId", for: indexPath)
@@ -90,6 +87,7 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
+                print(editingStyle)
                 // remove the item from the data model
                 foods.remove(at: indexPath.row)
                 filteredFoods.remove(at: indexPath.row)
@@ -104,6 +102,11 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         return 100
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // this will turn on `masksToBounds` just before showing the cell
+        cell.contentView.layer.masksToBounds = true
+    }
+    
     
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "details", sender: foods[indexPath.row])
@@ -115,17 +118,10 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
-           
         }
     }
     
-    func setImagePicker(){
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.allowsEditing = true
-        pickerController.mediaTypes = ["public.image", "public.movie"]
-        pickerController.sourceType = .camera
-    }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //Si il n'y a pas de text, on garde les foods , sinon filtrer
@@ -135,8 +131,6 @@ class FoodsTableViewController: UIViewController, UITableViewDataSource, UITable
         })
         foodTableView.reloadData()
     }
-    
-    
     
     @objc func addItem(){let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
         //Ajour  d'un textfield
@@ -166,7 +160,7 @@ class Foods {
         var foods: [Food] = []
         foods.append(Food(name: "Daurade",img: nil,shops: nil ))
         foods.append(Food(name: "Choux",img: nil,shops: nil ))
-        foods.append(Food(name: "Poire",img: nil,shops: [Shop(alimentName: "test", shopName: "testos", price: 12.3, date: Date(), weight: 12.0, typeWeight: 0, sales: false, priceWithSales: nil)] ))
+        foods.append(Food(name: "Poire",img: nil,shops: [Shop(alimentName: "Poire Williams", shopName: "Carrefour Labege", price: 12.3, date: Date(), weight: 12.0, typeWeight: 0, sales: false, priceWithSales: nil)] ))
         return foods
      }
 }

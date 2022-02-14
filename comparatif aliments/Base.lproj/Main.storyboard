@@ -16,43 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLp-QM-WzD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" separatorInsetReference="fromAutomaticInsets" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLp-QM-WzD">
                                 <rect key="frame" x="8" y="139" width="398" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="14" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodId" rowHeight="98" id="YQP-2g-Ugs" customClass="FoodTableViewCell" customModule="comparatif_aliments" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="398" height="98"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodId" rowHeight="100" id="YQP-2g-Ugs" customClass="FoodTableViewCell" customModule="comparatif_aliments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="398" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YQP-2g-Ugs" id="rc4-JG-9wC">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wr-lK-Jr1">
-                                                    <rect key="frame" x="0.0" y="8" width="398" height="82"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nM-3E-ZYI">
-                                                            <rect key="frame" x="91" y="29" width="299" height="24"/>
+                                                            <rect key="frame" x="91" y="38" width="299" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="foods" translatesAutoresizingMaskIntoConstraints="NO" id="68c-sb-X4C">
-                                                            <rect key="frame" x="8" y="3.5" width="75" height="75"/>
+                                                            <rect key="frame" x="8" y="12.5" width="75" height="75"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="75" id="fXK-P5-fUD"/>
                                                                 <constraint firstAttribute="height" constant="75" id="kBq-Ze-zfv"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wv2-a6-XzX">
-                                                            <rect key="frame" x="8" y="3.5" width="75" height="75"/>
+                                                            <rect key="frame" x="8" y="12.5" width="75" height="75"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="75" id="GJ5-I5-ftV"/>
                                                                 <constraint firstAttribute="width" constant="75" id="Ptr-B6-Xhz"/>
                                                             </constraints>
                                                             <state key="normal" title="+"/>
-                                                            <connections>
-                                                                <action selector="imagePickerButton:" destination="YQP-2g-Ugs" eventType="touchUpInside" id="8FW-wT-vZg"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,8 +68,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="0Wr-lK-Jr1" secondAttribute="trailing" id="3Dd-oh-vCa"/>
                                                 <constraint firstItem="0Wr-lK-Jr1" firstAttribute="leading" secondItem="rc4-JG-9wC" secondAttribute="leading" id="8WF-6K-bzL"/>
-                                                <constraint firstAttribute="bottom" secondItem="0Wr-lK-Jr1" secondAttribute="bottom" constant="8" id="M0c-Pl-9CQ"/>
-                                                <constraint firstItem="0Wr-lK-Jr1" firstAttribute="top" secondItem="rc4-JG-9wC" secondAttribute="top" constant="8" id="bFS-Jc-FVe"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Wr-lK-Jr1" secondAttribute="bottom" id="M0c-Pl-9CQ"/>
+                                                <constraint firstItem="0Wr-lK-Jr1" firstAttribute="top" secondItem="rc4-JG-9wC" secondAttribute="top" id="bFS-Jc-FVe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>

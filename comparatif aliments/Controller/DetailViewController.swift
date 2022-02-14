@@ -9,8 +9,6 @@ import UIKit
 
 class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-    
-    
     var detailTableView: UITableView!
     
     var food: Food?
@@ -18,11 +16,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         buildTableView()
+        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: "shopCell")
         guard let foodOk = food else { return }
         navigationItem.title = foodOk.name
         shops = foodOk.shops
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(openAlert))
     }
+    
+    
     
     
 
@@ -33,6 +34,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         detailTableView.dataSource = self
         detailTableView.delegate = self
+        detailTableView.separatorStyle = .none
         detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "shopCell")
         view.addSubview(detailTableView)
     }
@@ -46,24 +48,27 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.reloadData(shopAdd: test)
          }
         present(alertVC, animated: true, completion: nil)
-        
     }
     
     func reloadData(shopAdd: Shop){
         shops?.append(shopAdd)
         detailTableView.reloadData()
     }
-    
    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shops!.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 80
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let shop = shops![indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shopCell", for: indexPath as IndexPath)
-        cell.textLabel!.text = shop.alimentName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shopCell", for: indexPath as IndexPath) as! DetailTableViewCell
+        cell.shop = shop
+        cell.selectionStyle = .none
+        
         return cell
        
     }

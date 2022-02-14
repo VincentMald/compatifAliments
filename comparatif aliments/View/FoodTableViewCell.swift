@@ -16,15 +16,7 @@ class FoodTableViewCell: UITableViewCell {
     
     var food: Food!
    
-    
-    @IBAction func imagePickerButton(_ sender: Any) {
-       
-       
-    }
-    
-    
-    
-   
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,19 +30,31 @@ class FoodTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 8, bottom: 8, right: 8))
+    }
+    
     
     
     
     func setupCell(_ food: Food){
         self.food = food
-        nameLabel.text = self.food.name
+        nameLabel.text = self.food.name.capitalized
         if (food.img != nil) {
             foodImage.image = self.food.img
         } else  {
             foodImage.image = UIImage(named: "foods")
         }
         foodImage.contentMode =  .scaleAspectFill
+        let layer = containerView.layer
+        layer.masksToBounds = true
+        layer.cornerRadius = 5
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+      
        
     }
 
 }
+
